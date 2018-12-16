@@ -19,7 +19,8 @@ The order of your output does not matter.
 ```
 ## Solution
 - Time O(), Space O()
-1. 
+1. sort each str and save to a tuple to be the key(key should be unchanged)
+2. if 
 ```python
 class Solution:
     def groupAnagrams(self, strs):
