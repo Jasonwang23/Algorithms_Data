@@ -20,8 +20,8 @@ The order of your output does not matter.
 ## Solution
 - Time O(NKlongK), Space O(NK)
 N is length of list, K is max length of string in strs
-1. sort each str and save to a tuple to be the key(key should be unchanged)
-2. create a empty list for each key, append corresponding str to the list
+1. Sort each str and save to a tuple to be the key(key should be unchanged)
+2. Create a empty list for each key, append corresponding str to the list
 ```python
 class Solution:
     def groupAnagrams(self, strs):
