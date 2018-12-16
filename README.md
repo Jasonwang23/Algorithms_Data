@@ -1,9 +1,7 @@
-# Algorithms_Data
-Notes of learning algorithms and data structure 
+# Contents
 
-## Basic algorithms
+1. Leetcode
 
-## Basic data_structure
-1. Hashtable
+2. Useful links
 
 
