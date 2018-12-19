@@ -12,3 +12,5 @@ https://www.programiz.com/python-programming/methods/dictionary
 # if key exist, then return value, else return 0
 dic.get(key, 0)
 ```
+![Image of Hashtable](https://cdn-images-1.medium.com/max/1600/1*bDtDJ-JgV8BsxvOQFx7_jQ.png)
+![Image of Hashtable](https://github.com/Jasonwang23/Algorithms_Data/blob/master/Pics/WechatIMG4.jpeg)
