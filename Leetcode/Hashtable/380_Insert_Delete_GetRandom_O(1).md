@@ -35,8 +35,8 @@ randomSet.getRandom();
 ```
 ## Solution
 - Time O(1), Space O()
-1. Define a list and a hashtable, use the hashtable to store {num:index}, and use list to store num, and use its index
-to be the index of hashtable
+1. Define a list and a hashtable, use the hashtable to store {num:index}, and use list to store num and its index
+to be the index of hashtable. use list to maintain the index of hashtable
 2. Delet: exchange the last num in list with the val, exchange the num and val in the hashtable meanwhile, pop the last one
 (which is val now) in the list and pop the val in the hashtable
 ```python
