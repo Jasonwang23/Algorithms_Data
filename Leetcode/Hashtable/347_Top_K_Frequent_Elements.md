@@ -18,3 +18,30 @@ Your algorithm's time complexity must be better than O(n log n), where n is the 
 
 ```
 ## Solution
+1. build a hashtable, {num:frequency}
+2. build a list(bucket), index: frequency, value: num
+3. get top k element from bucket
+- Time O(n), space O(n)
+![Image of code](http://zxi.mytechroad.com/blog/wp-content/uploads/2017/10/347-ep95.png)
+```python
+class Solution:
+    def topKFrequent(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+        d = {}
+        for num in nums:
+            d[num] = d.get(num, 0) + 1
+        
+        bucket = [[] for _ in range(len(nums) + 1)]
+        for num in d.keys():
+            bucket[d[num]].append(num)
+            
+        ans = []
+        for i in range(len(nums), 0 ,-1):
+            ans += (bucket[i])
+            if len(ans) == k:
+                return ans
+```
