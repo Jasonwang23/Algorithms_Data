@@ -36,7 +36,7 @@ class Solution:
         """
         if len(t) > len(s):
             return ''
-        if s == '' or t == ''
+        if s == '' or t == '':
             return ''
         
         n = len(s)
@@ -52,7 +52,7 @@ class Solution:
             
             while counter == 0:
                 if s[begin] in maps:
-                    maps[s[beign]] += 1
+                    maps[s[begin]] += 1
                     if maps[s[begin]] > 0:
                         counter += 1
                     if end - begin < length:
@@ -62,5 +62,5 @@ class Solution:
                 
         if length == float('inf'):
             return ''
-        return [head:head+length]
+        return s[head:head+length]
 ```
