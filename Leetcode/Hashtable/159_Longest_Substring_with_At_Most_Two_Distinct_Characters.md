@@ -17,7 +17,7 @@ Explanation: t is "aabbb" which its length is 5.
 ## Solution
 1. use two pointers begin and end, while (end < len(s)), move end on s
 2. build a hashtable to store {character:freqs}, and a counter to count the number of character that freqs is not 0, 
-if counter < 2: counter + 1
+if add a new character, counter + 1
 3. if counter > 2, move begin, if freqs of s[begin] is 0, counter - 1 
 4. Out of (end < len(s)) loop, return max length
 - Time O(), space O()
