@@ -22,6 +22,9 @@ is 0, we know that all the character is in the window
 4. We move the begin now, if the counter is also 0, we can keep moving beign to redece the size of window
 5. When get out of the loop while end < len(s), we need to judge if the size of window is changed, if it is changed,
 the return
+- Time Complexity: O(|S| + |T|)O(∣S∣+∣T∣) where |S| and |T| represent the lengths of strings SS and TT. In the worst case we might end up visiting every element of string SS twice, once by left pointer and once by right pointer. |T|∣T∣ represents the length of string TT.
+
+- Space Complexity: O(|S| + |T|)O(∣S∣+∣T∣). |S|∣S∣ when the window size is equal to the entire string SS. |T|∣T∣ when TT has all unique characters.
 ```python
 import collections
 class Solution:
