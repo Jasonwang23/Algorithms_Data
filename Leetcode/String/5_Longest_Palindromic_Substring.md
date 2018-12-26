@@ -88,6 +88,18 @@ class Solution:
 ```
 ### DP
 https://leetcode.com/articles/longest-palindromic-substring/
+1. Find transfer function and base case
+```
+P(i,j) = True if Si...Sj is palindrom,
+esle False
+
+Base case:
+P(i,i) = True
+P(i,i+1) = (Si==Si+1)
+
+Transfer function:
+P(i,j) = P(i+1,j-1) and Si == Sj
+```
 ```python
 class Solution:
     def longestPalindrome(self, s):
