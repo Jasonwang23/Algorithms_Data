@@ -15,7 +15,23 @@ Output: "bb"
 ```
 ## Solution
 ### Longest common substring 
-- LCSuff(S1...p, T1...q) = LCS(S1...p1, T1...q-1) if S[p] = T[q] else 0
+1. LCSuff(S1...p, T1...q) = LCS(S1...p1, T1...q-1) if S[p] = T[q] else 0
+2. 这个方法是buggy的，看字符串abcxgcba,它reverse之后是abcgxcba,它们有公共字符串，但是这里面没有回文，修复方式是：
+```
+we check if the substring’s indices are the same as the reversed substring’s original indices. If it is, then we attempt to update the longest palindrome found so far; if not, we skip this and find the next candidate.
+
+我觉得的修复方式这样么：
+
+原本     翻转
+ABXYBA   ABYXBA
+
+求出来的substring indices是 0:2 但是这个s1[0:2] 和 s2[0:2]一样，所以不行
+同理common substring indices还是s[4:6] 和s2[4:6]一样，不行
+
+而比如ABAD和 DABA
+
+substring indice 一个是0：3， 一个是1:4，这样就没问题
+```
 ![Image of code](https://github.com/Jasonwang23/Algorithms_Data/blob/master/Pics/453651CE-B839-4DC8-8535-5B239E5B5CD4.png)
 ```python
 class Solution(object):
@@ -40,13 +56,9 @@ class Solution(object):
 
         return lcs(s, s[::-1])
 ```
-
-
-
-
-
-
-
+### From middle to two ends
+1. Define a helper function, take every character as the middle of the palindromic-substring
+2. Consider two cases, even and odd
 ```python
 class Solution:
     def longestPalindrome(self, s):
@@ -73,4 +85,39 @@ class Solution:
             l -= 1
             r += 1
         return s[l+1:r]
+```
+### DP
+https://leetcode.com/articles/longest-palindromic-substring/
+```python
+class Solution:
+    def longestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        ans = ''
+        n = len(s)
+        max_len = 0
+        dp = [[0]*n for i in range(n)]
+        
+        for i in range(n):
+            dp[i][i] = True
+            ans = s[i]
+            max_len = 1
+            
+        for i in range(n-1):
+            if s[i] == s[i+1]:
+                dp[i][i+1] = True
+                ans = s[i:i+2]
+                max_len = 2
+        
+        for j in range(n):
+            for i in range(j-1):
+                if s[i] == s[j] and dp[i+1][j-1]:
+                    dp[i][j] = True
+                    if max_len < j-i+1:
+                        ans = s[i:j+1]
+                        max_len = j-i+1
+        return ans
+        
 ```
