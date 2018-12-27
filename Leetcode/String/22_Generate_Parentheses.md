@@ -24,6 +24,7 @@ For example, given n = 3, a solution set is:
 
 1. 加左括号。
 2. 加右括号。
+
 同时有以下限制：
 
 1. 如果左括号已经用完了，则不能再加左括号了。
