@@ -34,6 +34,7 @@ target = 7
 print(binary_iter_search(a, target, 0, len(a)-1))
 ```
 #### Difference between return and print
+https://www.codecademy.com/en/forum_questions/518ffbfeb3f05c44fe001395
 Unfortunately, there is a character limit so this will be in many parts. First thing to note is that return and print are statements, not functions, but that is just semantics.
 
 I'll start with a basic explanation. print just shows the human user a string representing what is going on inside the computer. The computer cannot make use of that printing. return is how a function gives back a value. This value is often unseen by the human user, but it can be used by the computer in further functions.
