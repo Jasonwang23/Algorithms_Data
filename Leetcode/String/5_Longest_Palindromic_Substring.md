@@ -15,7 +15,7 @@ Output: "bb"
 ```
 ## Solution
 ### Longest common substring 
-1. LCSuff(S1...p, T1...q) = LCS(S1...p1, T1...q-1) if S[p] = T[q] else 0
+1. LCSuff(S1...p, T1...q) = LCS(S1...p-1, T1...q-1) if S[p] = T[q] else 0
 2. 这个方法是buggy的，看字符串abcxgcba,它reverse之后是abcgxcba,它们有公共字符串，但是这里面没有回文，修复方式是：
 ```
 we check if the substring’s indices are the same as the reversed substring’s original indices. If it is, then we attempt to update the longest palindrome found so far; if not, we skip this and find the next candidate.
