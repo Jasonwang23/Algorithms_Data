@@ -17,7 +17,7 @@ Output:
 ]
 ```
 ## Solution
-- Time O(n*n!), space O(n*n!)
+- Time O(n * n!), space O(n * n!)
 ### DFS
 ```python
 class Solution:
