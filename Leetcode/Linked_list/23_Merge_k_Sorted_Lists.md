@@ -15,8 +15,8 @@ Output: 1->1->2->3->4->4->5->6
 ```
 ## Solution
 ### Priority queue
-- Compare the fist node of each linked list, if it's samller than the other, and then get the next node of this linked list and
-then continue to compare
+- Compare the fist node of each linked list, if it's samller than the other, and then get the next node of this linked list and then continue to compare
+- Time O(nlogk), space O(n)
 1. Put first val and node of every linked list into priority queue
 2. Get the first val and node in the priority queue and add to the new linked list
 3. Keep get the next node from current node
@@ -75,5 +75,35 @@ class Solution(object):
             if node:
                 heapq.heappush(heap, node.val)
                 d[node.val].append(node)
+        return head.next
+```
+### Divide and conquer
+```
+class Solution(object):
+    def mergeKLists(self, lists):
+        """
+        :type lists: List[ListNode]
+        :rtype: ListNode
+        """
+        if not lists:
+            return 
+        if len(lists) == 1:
+            return lists[0]
+        mid = len(lists)//2
+        l = self.mergeKLists(lists[:mid])
+        r = self.mergeKLists(lists[mid:])
+        return self.merge(l,r)
+    
+    def merge(self, l, r):
+        head = cur = ListNode(0)
+        while l and r:
+            if l.val < r.val:
+                cur.next = l
+                l = l.next
+            else:
+                cur.next = r
+                r = r.next
+            cur = cur.next
+        cur.next = l or r
         return head.next
 ```
