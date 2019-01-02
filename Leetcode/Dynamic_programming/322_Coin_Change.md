@@ -18,6 +18,9 @@ You may assume that you have an infinite number of each kind of coin.
 ```
 ## Transfer function
 dp[i] = min(dp[i], dp[i-coin[j]]+1), coin[j] is the amount of coin
+
+set orignal dp[i] = amount + 1, and keep getting the min dp[i]
+
 https://leetcode.com/articles/coin-change/
 ![Image of code](https://leetcode.com/media/original_images/322_coin_change_table.png)
 1. i is the amount of money, coin[j] is the amount of coin
