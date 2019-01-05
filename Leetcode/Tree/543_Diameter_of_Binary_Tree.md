@@ -18,3 +18,31 @@ Note: The length of path between two nodes is represented by the number of edges
 ## Solution
 1. Diameter = maximum length arrows L, R for each child, then the best path touches L + R + 1 nodes 
 2. Calculate the depth of a node in the usual way: max(depth of node.left, depth of node.right) + 1
+- Time O(n), space O(n)
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def diameterOfBinaryTree(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        self.ans = 0
+        
+        def depth(p):
+            if not p:
+                return 0
+            l = depth(p.left)
+            r = depth(p.right)
+            self.ans = max(self.ans, l+r)
+            return 1 + max(l, r)
+        
+        depth(root)
+        return self.ans
+```
