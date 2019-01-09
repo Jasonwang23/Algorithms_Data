@@ -18,11 +18,10 @@ Output: "acdb"
 ```
 ## Solution
 - Use a hastable to count the number of characters in the string
-- if the character is in the set, it also it's in the result
 
-for every character in the string, if it's not in the set
-1. if res[-1] > c and count > 0, then delete it from res and set
-2. if if in the set, reduce the count
+for every character in the string, if it's not in the res
+1. if res[-1] > c and count > 0, then delete it from res
+2. if it's in the res, reduce the count
 ```python
 import collections
 class Solution:
